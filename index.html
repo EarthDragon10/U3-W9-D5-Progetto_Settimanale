@@ -36,22 +36,25 @@
                 <div class="box-btn">
                     <div class="btn">.</div>
                     <div class="btn" onclick="writeToDisplay('0')">0</div>
-                    <div class="btn">#</div>
+                    <div class="btn" id="btn-azzera-chiamate"><i class="fa-regular fa-circle-xmark"></i></div>
                 </div>
                 <div class="box-btn">
-                    <div class="btn btn-red"><i class="fa-solid fa-phone-slash"></i></div>
+                    <div class="btn btn-red" id="stop-time"><i class="fa-solid fa-phone-slash"></i></div>
                     <div class="btn btn-orange" onclick="deleteNumber()"><i class="fa-solid fa-delete-left"></i></div>
-                    <div class="btn btn-green"><i class="fa-solid fa-phone"></i></div>
+                    <div class="btn btn-green" id="start-time"><i class="fa-solid fa-phone"></i></div>
                 </div>
             </div>
             <div id="operations-phone">
                 <div id="ricarica-tel">
                     <h3>Credito</h3>
-                    <button onclick="addCredito()">Ricarica</button>
+                    <button id="btn-add-credito">Ricarica</button>
                 </div>
                 <div id="chiamata-time">
                     <h3>Durata</h3>
-                    <div id="durata-chiamata">Timer 0:00</div>
+                    <div id="durata-chiamata">Timer <span id="timer">0:0</span></div>
+                </div>
+                <div id="quantita-chiamate">
+                    <p>Chiamate effettuate: <span id="numb-chiamate"></span></p>
                 </div>
             </div>
         </div>

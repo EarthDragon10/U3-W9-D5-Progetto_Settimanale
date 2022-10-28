@@ -21,7 +21,7 @@ class Motorola extends CellPhone {
         this.carica -= costoTotaleChiamata;
     } // effettua una chiamata di tot minuti, passato come parametro
     number404() {
-        console.log(this.carica);
+        // console.log(this.carica);
         return this.carica;
     } // restituisce il valore del credito disponibile
     getNumeroChiamate() {
@@ -41,10 +41,19 @@ const deleteNumber = () => {
 };
 let phone_1 = new Motorola(10);
 console.log(phone_1.carica);
-addEventListener("DOMContentLoaded", (event) => {
+document.addEventListener("DOMContentLoaded", () => {
     showCredito();
-    let startTimerElem = document.querySelector(".btn-green");
-    startTimerElem.onclick = startTimer;
+    let addCreditoElem = document.querySelector("#btn-add-credito");
+    addCreditoElem === null || addCreditoElem === void 0 ? void 0 : addCreditoElem.addEventListener("click", addCredito);
+    let startTimerElem = document.querySelector("#start-time");
+    // startTimerElem.onclick = startTimer;
+    startTimerElem === null || startTimerElem === void 0 ? void 0 : startTimerElem.addEventListener("click", startTimer);
+    let stopTimerElem = document.querySelector("#stop-time");
+    // console.log(stopTimerElem);
+    // stopTimerElem.onclick = stopTimer;
+    stopTimerElem === null || stopTimerElem === void 0 ? void 0 : stopTimerElem.addEventListener("click", stopTimer);
+    let azzeraChiamateElem = document.querySelector("#btn-azzera-chiamate");
+    azzeraChiamateElem === null || azzeraChiamateElem === void 0 ? void 0 : azzeraChiamateElem.addEventListener("click", resetChiamate);
 });
 const showCredito = () => {
     let showCreditoElem = document.querySelector("#credito");
@@ -60,13 +69,16 @@ const addCredito = () => {
     showCreditoElem.innerText = `${phone_1.carica}`;
     console.log(phone_1.carica);
 };
-let seconds = 0;
+let seconds = 1;
+let clearIntervalID = 0;
 const startTimer = () => {
     console.log("funzione attivata");
-    let timerElem = document.querySelector("durata-chiamata");
-    const changeSeconds = setInterval(() => {
+    let timerElem = document.querySelector("#timer");
+    console.log(timerElem);
+    let changeSeconds = setInterval(() => {
         timerElem.innerHTML = `0:${seconds}`;
         seconds++;
+        clearIntervalID = changeSeconds;
         // clearIntervalID = changeSeconds;
         if (seconds === 61) {
             // clearInterval(changeSeconds);
@@ -74,6 +86,24 @@ const startTimer = () => {
         }
         // console.log(typeof progressTimeElement.innerHTML);
     }, 1000);
+};
+const stopTimer = () => {
+    clearInterval(clearIntervalID);
+    phone_1.chiamata(seconds);
+    console.log(phone_1);
+    showCredito();
+    setNumberCalls();
+    let timerElem = document.querySelector("#timer");
+    timerElem.innerHTML = "0:0";
+    seconds = 1;
+};
+const setNumberCalls = () => {
+    let quantitaChiamateElem = document.querySelector("#numb-chiamate");
+    quantitaChiamateElem.innerHTML = `${phone_1.getNumeroChiamate()}`;
+};
+const resetChiamate = () => {
+    phone_1.azzeraChiamate();
+    setNumberCalls();
 };
 // showCredito();
 // let phone_1 = new Motorola(10);

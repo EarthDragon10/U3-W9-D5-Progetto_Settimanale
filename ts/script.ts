@@ -40,7 +40,7 @@ class Motorola extends CellPhone {
 	} // effettua una chiamata di tot minuti, passato come parametro
 
 	number404(): number {
-		console.log(this.carica);
+		// console.log(this.carica);
 		return this.carica;
 	} // restituisce il valore del credito disponibile
 
@@ -67,11 +67,28 @@ let phone_1 = new Motorola(10);
 
 console.log(phone_1.carica);
 
-addEventListener("DOMContentLoaded", (event) => {
+document.addEventListener("DOMContentLoaded", () => {
 	showCredito();
 
-	let startTimerElem = document.querySelector(".btn-green") as HTMLElement;
-	startTimerElem.onclick = startTimer;
+	let addCreditoElem = document.querySelector(
+		"#btn-add-credito"
+	) as HTMLElement;
+	addCreditoElem?.addEventListener("click", addCredito);
+
+	let startTimerElem = document.querySelector("#start-time") as HTMLElement;
+	// startTimerElem.onclick = startTimer;
+	startTimerElem?.addEventListener("click", startTimer);
+
+	let stopTimerElem = document.querySelector("#stop-time") as HTMLElement;
+	// console.log(stopTimerElem);
+	// stopTimerElem.onclick = stopTimer;
+	stopTimerElem?.addEventListener("click", stopTimer);
+
+	let azzeraChiamateElem = document.querySelector(
+		"#btn-azzera-chiamate"
+	) as HTMLElement;
+
+	azzeraChiamateElem?.addEventListener("click", resetChiamate);
 });
 
 const showCredito = () => {
@@ -92,16 +109,20 @@ const addCredito = () => {
 	console.log(phone_1.carica);
 };
 
-let seconds: number = 0;
+let seconds: number = 1;
+let clearIntervalID: number = 0;
 
 const startTimer = () => {
 	console.log("funzione attivata");
-	let timerElem = document.querySelector("durata-chiamata") as HTMLElement;
+	let timerElem = document.querySelector("#timer") as HTMLSpanElement;
+
 	console.log(timerElem);
-	const changeSeconds: number = setInterval(() => {
+
+	let changeSeconds = setInterval(() => {
 		timerElem.innerHTML = `0:${seconds}`;
 		seconds++;
 
+		clearIntervalID = changeSeconds;
 		// clearIntervalID = changeSeconds;
 
 		if (seconds === 61) {
@@ -112,6 +133,34 @@ const startTimer = () => {
 	}, 1000);
 };
 
+const stopTimer = () => {
+	clearInterval(clearIntervalID);
+	phone_1.chiamata(seconds);
+	console.log(phone_1);
+
+	showCredito();
+
+	setNumberCalls();
+
+	let timerElem = document.querySelector("#timer") as HTMLSpanElement;
+	timerElem.innerHTML = "0:0";
+
+	seconds = 1;
+};
+
+const setNumberCalls = () => {
+	let quantitaChiamateElem = document.querySelector(
+		"#numb-chiamate"
+	) as HTMLSpanElement;
+
+	quantitaChiamateElem.innerHTML = `${phone_1.getNumeroChiamate()}`;
+};
+
+const resetChiamate = () => {
+	phone_1.azzeraChiamate();
+
+	setNumberCalls();
+};
 // showCredito();
 // let phone_1 = new Motorola(10);
 
