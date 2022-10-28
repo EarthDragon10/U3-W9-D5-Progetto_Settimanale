@@ -14,43 +14,44 @@
 <body>
     <div class="container">
         <div id="motorola">
-            <div id="show-credito">Credito disponibile: <i class="fa-solid fa-dollar-sign"></i></div>
+            <div id="show-credito">Credito disponibile: <span id="credito"></span><i
+                    class="fa-solid fa-dollar-sign"></i></div>
             <div class="wrap-keypad">
-                <div id="input-keypad"></div>
+                <div id="input-keypad"><input type="text" id="display" readonly /></div>
                 <div class="box-btn">
-                    <div class="btn">1</div>
-                    <div class="btn">2</div>
-                    <div class="btn">3</div>
+                    <div class="btn" onclick="writeToDisplay('1')">1</div>
+                    <div class="btn" onclick="writeToDisplay('2')">2</div>
+                    <div class="btn" onclick="writeToDisplay('3')">3</div>
                 </div>
                 <div class="box-btn">
-                    <div class="btn">4</div>
-                    <div class="btn">5</div>
-                    <div class="btn">6</div>
+                    <div class="btn" onclick="writeToDisplay('4')">4</div>
+                    <div class="btn" onclick="writeToDisplay('5')">5</div>
+                    <div class="btn" onclick="writeToDisplay('6')">6</div>
                 </div>
                 <div class="box-btn">
-                    <div class="btn">7</div>
-                    <div class="btn">8</div>
-                    <div class="btn">9</div>
+                    <div class="btn" onclick="writeToDisplay('7')">7</div>
+                    <div class="btn" onclick="writeToDisplay('8')">8</div>
+                    <div class="btn" onclick="writeToDisplay('9')">9</div>
                 </div>
                 <div class="box-btn">
                     <div class="btn">.</div>
-                    <div class="btn">0</div>
+                    <div class="btn" onclick="writeToDisplay('0')">0</div>
                     <div class="btn">#</div>
                 </div>
                 <div class="box-btn">
-                    <div class="btn btn-red"><i class="fa-solid fa-phone-slash"></i></i></div>
-                    <div class="btn btn-orange"><i class="fa-solid fa-phone-volume"></i></i></div>
+                    <div class="btn btn-red"><i class="fa-solid fa-phone-slash"></i></div>
+                    <div class="btn btn-orange" onclick="deleteNumber()"><i class="fa-solid fa-delete-left"></i></div>
                     <div class="btn btn-green"><i class="fa-solid fa-phone"></i></div>
                 </div>
             </div>
             <div id="operations-phone">
                 <div id="ricarica-tel">
                     <h3>Credito</h3>
-                    <button>Ricarica</button>
+                    <button onclick="addCredito()">Ricarica</button>
                 </div>
                 <div id="chiamata-time">
                     <h3>Durata</h3>
-                    <div id="durata-chiamata"></div>
+                    <div id="durata-chiamata">Timer 0:00</div>
                 </div>
             </div>
         </div>

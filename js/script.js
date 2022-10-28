@@ -31,12 +31,57 @@ class Motorola extends CellPhone {
         this.numeroChiamate = 0;
     } // azzera il valore della variabile "numeroChiamate"
 }
+const writeToDisplay = (number) => {
+    let displayElem = document.querySelector("#display");
+    displayElem.value += number;
+};
+const deleteNumber = () => {
+    let displayElem = document.querySelector("#display");
+    displayElem.value = displayElem.value.slice(0, -1);
+};
 let phone_1 = new Motorola(10);
-console.log(phone_1);
-phone_1.ricarica(20);
-console.log(phone_1);
-phone_1.chiamata(6);
-console.log(phone_1);
-phone_1.number404();
-phone_1.azzeraChiamate();
-console.log(phone_1);
+console.log(phone_1.carica);
+addEventListener("DOMContentLoaded", (event) => {
+    showCredito();
+    let startTimerElem = document.querySelector(".btn-green");
+    startTimerElem.onclick = startTimer;
+});
+const showCredito = () => {
+    let showCreditoElem = document.querySelector("#credito");
+    console.log(showCreditoElem);
+    showCreditoElem.innerText = `${phone_1.carica}`;
+};
+const addCredito = () => {
+    let displayElem = document.querySelector("#display");
+    let showCreditoElem = document.querySelector("#credito");
+    let addedMoney = Number(displayElem.value);
+    phone_1.ricarica(addedMoney);
+    displayElem.value = "";
+    showCreditoElem.innerText = `${phone_1.carica}`;
+    console.log(phone_1.carica);
+};
+let seconds = 0;
+const startTimer = () => {
+    console.log("funzione attivata");
+    let timerElem = document.querySelector("durata-chiamata");
+    const changeSeconds = setInterval(() => {
+        timerElem.innerHTML = `0:${seconds}`;
+        seconds++;
+        // clearIntervalID = changeSeconds;
+        if (seconds === 61) {
+            // clearInterval(changeSeconds);
+            seconds = 1;
+        }
+        // console.log(typeof progressTimeElement.innerHTML);
+    }, 1000);
+};
+// showCredito();
+// let phone_1 = new Motorola(10);
+// console.log(phone_1);
+// phone_1.ricarica(20);
+// console.log(phone_1);
+// phone_1.chiamata(6);
+// console.log(phone_1);
+// phone_1.number404();
+// phone_1.azzeraChiamate();
+// console.log(phone_1);

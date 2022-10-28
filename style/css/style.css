@@ -60,9 +60,11 @@ body .container .wrap-keypad .box-btn .btn {
   padding: 1rem;
   border-radius: 10px;
   background-color: white;
+  font-weight: bold;
 }
 body .container .wrap-keypad .box-btn .btn:hover {
   background-color: blanchedalmond;
+  cursor: pointer;
 }
 body .container .wrap-keypad .box-btn .btn-red {
   background-color: red;

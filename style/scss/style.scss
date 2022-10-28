@@ -67,9 +67,11 @@ body {
 					padding: 1rem;
 					border-radius: 10px;
 					background-color: white;
+					font-weight: bold;
 
 					&:hover {
 						background-color: blanchedalmond;
+						cursor: pointer;
 					}
 				}
 
