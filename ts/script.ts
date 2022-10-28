@@ -137,7 +137,7 @@ const startTimer = () => {
 
 const stopTimer = () => {
 	clearInterval(clearIntervalID);
-	phone_1.chiamata(Math.floor(seconds));
+	phone_1.chiamata(Math.floor(minutes * 60 + seconds));
 	console.log(phone_1);
 
 	showCredito();
