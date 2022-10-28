@@ -69,6 +69,7 @@ const addCredito = () => {
     showCreditoElem.innerText = `${phone_1.carica}`;
     console.log(phone_1.carica);
 };
+let minutes = 0;
 let seconds = 1;
 let clearIntervalID = 0;
 const startTimer = () => {
@@ -76,12 +77,13 @@ const startTimer = () => {
     let timerElem = document.querySelector("#timer");
     console.log(timerElem);
     let changeSeconds = setInterval(() => {
-        timerElem.innerHTML = `0:${seconds}`;
+        timerElem.innerHTML = `${minutes}:${seconds}`;
         seconds++;
         clearIntervalID = changeSeconds;
         // clearIntervalID = changeSeconds;
         if (seconds === 61) {
             // clearInterval(changeSeconds);
+            minutes++;
             seconds = 1;
         }
         // console.log(typeof progressTimeElement.innerHTML);
