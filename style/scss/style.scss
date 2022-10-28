@@ -5,3 +5,112 @@
 	padding: 0;
 	box-sizing: border-box;
 }
+
+body {
+	.container {
+		background-color: grey;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		height: 100vh;
+		width: 100%;
+
+		#motorola {
+			display: flex;
+			flex-direction: column;
+			justify-content: space-around;
+			align-items: center;
+			border: black 15px solid;
+			border-radius: 10px;
+			height: 600px;
+			width: 350px;
+			background-color: rgb(21, 44, 148);
+			// margin: 0 auto;
+		}
+
+		#show-credito {
+			width: 70%;
+		}
+
+		#input-keypad {
+			width: 100%;
+		}
+
+		#show-credito,
+		#input-keypad {
+			height: 40px;
+			margin: 1rem auto;
+
+			padding: 10px;
+			border-radius: 10px;
+			background-color: white;
+		}
+
+		.wrap-keypad {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			gap: 1rem;
+
+			.box-btn {
+				display: flex;
+				flex-direction: row;
+				justify-content: center;
+				align-items: center;
+				gap: 1rem;
+
+				.btn {
+					text-align: center;
+					height: 50px;
+					width: 50px;
+					padding: 1rem;
+					border-radius: 10px;
+					background-color: white;
+
+					&:hover {
+						background-color: blanchedalmond;
+					}
+				}
+
+				.btn-red {
+					background-color: red;
+				}
+
+				.btn-orange {
+					background-color: orange;
+				}
+
+				.btn-green {
+					background-color: green;
+				}
+			}
+		}
+
+		#operations-phone {
+			display: flex;
+			flex-direction: row;
+			justify-content: center;
+			align-items: center;
+			gap: 1rem;
+		}
+
+		#ricarica-tel {
+			// width: 30%;
+			padding: 1rem;
+			border-radius: 10px;
+			background-color: white;
+
+			input {
+				width: 50%;
+			}
+		}
+
+		#chiamata-time {
+			padding: 1rem;
+			border-radius: 10px;
+			background-color: white;
+			// width: 30%;
+		}
+	}
+}

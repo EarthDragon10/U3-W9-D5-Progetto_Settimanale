@@ -6,4 +6,90 @@
   box-sizing: border-box;
 }
 
-/*# sourceMappingURL=style.css.map */
+body .container {
+  background-color: grey;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+}
+body .container #motorola {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  border: black 15px solid;
+  border-radius: 10px;
+  height: 600px;
+  width: 350px;
+  background-color: rgb(21, 44, 148);
+}
+body .container #show-credito {
+  width: 70%;
+}
+body .container #input-keypad {
+  width: 100%;
+}
+body .container #show-credito,
+body .container #input-keypad {
+  height: 40px;
+  margin: 1rem auto;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: white;
+}
+body .container .wrap-keypad {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+body .container .wrap-keypad .box-btn {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+body .container .wrap-keypad .box-btn .btn {
+  text-align: center;
+  height: 50px;
+  width: 50px;
+  padding: 1rem;
+  border-radius: 10px;
+  background-color: white;
+}
+body .container .wrap-keypad .box-btn .btn:hover {
+  background-color: blanchedalmond;
+}
+body .container .wrap-keypad .box-btn .btn-red {
+  background-color: red;
+}
+body .container .wrap-keypad .box-btn .btn-orange {
+  background-color: orange;
+}
+body .container .wrap-keypad .box-btn .btn-green {
+  background-color: green;
+}
+body .container #operations-phone {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+body .container #ricarica-tel {
+  padding: 1rem;
+  border-radius: 10px;
+  background-color: white;
+}
+body .container #ricarica-tel input {
+  width: 50%;
+}
+body .container #chiamata-time {
+  padding: 1rem;
+  border-radius: 10px;
+  background-color: white;
+}
