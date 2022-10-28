@@ -89,7 +89,7 @@ const startTimer = () => {
 };
 const stopTimer = () => {
     clearInterval(clearIntervalID);
-    phone_1.chiamata(seconds);
+    phone_1.chiamata(Math.floor(seconds));
     console.log(phone_1);
     showCredito();
     setNumberCalls();
